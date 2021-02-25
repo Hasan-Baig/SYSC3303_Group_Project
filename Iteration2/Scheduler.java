@@ -1,5 +1,5 @@
 /**
- * Schedular.java
+ * Scheduler.java
  * 
  * The Scheduler is responsible for handling incoming requests from the floor Subsystem and passing requests
  * to the elevator subsystem. This is done using a shared resource between the three threads and with the 
@@ -11,8 +11,6 @@
  * (Group 1 - SYSC 3303 L2)
  *
  */
-
-package ElevatorProject;
 
 import java.util.ArrayList;
 
@@ -33,7 +31,7 @@ public class Scheduler implements Runnable {
 	 * This variable is used to keep track of the current state of the scheduler.
 	 * Initial state is to wait for a request.
 	 */
-	private static State current_state = States.WAIT_FOR_REQUEST;
+	private static State current_state = State.WAIT_FOR_REQUEST;
 
 
 	/**
@@ -44,7 +42,7 @@ public class Scheduler implements Runnable {
 	/* 
 	 * Used to receive current state of scheduler.
    */
-	public States getState() {
+	public State getState() {
 		return current_state;
 	}
 
