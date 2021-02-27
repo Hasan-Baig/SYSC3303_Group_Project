@@ -17,11 +17,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Floor implements Runnable{
-<<<<<<< HEAD
-=======
-	
-	//private final Integer NUMBER_OF_FLOORS = 7;
->>>>>>> branch 'main' of https://github.com/Hasan-Baig/SYSC3303_Group_Project.git
 	private Scheduler scheduler;
 	private int floorLevel;
 	private int floorButton;
