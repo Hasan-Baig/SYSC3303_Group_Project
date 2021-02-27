@@ -3,14 +3,13 @@
  * @author Alden Ng
  *
  */
-public class ElevatorState {
+public interface ElevatorState {
 	
-	/*
-	 * Elevator is now in the *insert state* state
-	 */
-	public void Enter() {
-	}
+	public void ButtonPress();
 	
-	public void Update() {
-	}
+	public void CloseDoors();
+	
+	public void OpenDoors();
+	
+	public void ReceivedRequest();
 }

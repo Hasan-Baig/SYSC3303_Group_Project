@@ -1,39 +1,65 @@
 /**
  * 
- * @author Alden Ng, Rutvik Shah, Hasan Baig
- * 
+ * @author Alden Ng
+ *
  */
 public class Elevator implements Runnable{
 
-	
-	private String currentState;
+	// Current Elevator State
 	private ElevatorState elevatorState;
+	
+	// All Concrete Elevator States
+	private ElevatorState idle;
+	private ElevatorState moving;
+	private ElevatorState arrived;
 	
 	/*
 	 * Default Constructor when Elevator is created
 	 * Initial State is "Doors Closed" by default
 	 */
 	public Elevator() {
-		this.currentState = "Doors Closed";
-	}
-	
-	/*
-	 * Constructor with String state
-	 * Set the state of the elevator object with String state
-	 */
-	public Elevator(String state) {
-		this.currentState = state;
-		this.SetState(state);
-	}
-	
-	/*
-	 * Create State Object based on ElevatorState
-	 */
-	public void SetState(String EleState) {
 		
-		if(currentState == "Doors Closed") {
-			elevatorState = new DoorsClosed();
-		}
+		// Creating all concrete state objects
+		this.idle = new IdleES(this);
+		this.moving = new MovingES(this);
+		this.arrived = new ArrivedES(this);
+		
+		// Default State to Idle
+		elevatorState = idle;
+	}
+	
+	/*
+	 * Set the State of the Elevator
+	 */
+	public void SetState(ElevatorState newElevatorState) {
+		elevatorState = newElevatorState;
+	}
+	
+	/*
+	 * Press Button depending on elevatorState
+	 */
+	public void buttonPress() {
+		elevatorState.ButtonPress();
+	}
+	
+	/*
+	 * Close Doors depending on elevatorState
+	 */
+	public void CloseDoors() {
+		elevatorState.CloseDoors();
+	}
+	
+	/*
+	 * Open Doors depending on elevatorState
+	 */
+	public void OpenDoors() {
+		elevatorState.OpenDoors();
+	}
+	/*
+	 * ReceiveRequest and process based on elevatorState
+	 */
+	public void ReceiveRequest() {
+		elevatorState.ReceivedRequest();
 	}
 	
 	/*
