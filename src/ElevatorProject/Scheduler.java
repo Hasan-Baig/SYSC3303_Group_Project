@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Scheduler {
-
 	/* Byte array used to acknowledge requests */
 	private byte[] ack = null;
 	
@@ -111,7 +110,6 @@ public class Scheduler {
 		this.ack = ack;
 		notifyAll();
 	}
-	
 		
   	/**
 	 * This synchronized method is used to send an acknowledgement and reset private ack variable to null.
@@ -162,7 +160,7 @@ public class Scheduler {
 	 * @param direction The direction of the elevator.
 	 */
 	public int checkForAvailableElevator(int Floor, String direction) {
-		//Logic to determine which elevator will service request will be implemeted
+		//Logic to determine which elevator will service request will be implemented
 		//later
 		return 1;
 	}
