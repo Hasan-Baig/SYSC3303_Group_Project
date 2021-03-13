@@ -55,7 +55,8 @@ Packet.java
 	   
 /***** ELEVATOR SUBSYSTEM *****/
 ArrivedES.java
-	-> This class implements the ElevatorState interface to set the State to Arrived and change characteristics of the Elevator.
+	-> This class implements the ElevatorState interface to set the State to Arrived and change 
+	   characteristics of the Elevator.
 Elevator.java
 	-> The Elevator threads floorsToVisit arraylist is updated by requests received
  	   from the Elevator Subsystem. When there are requests to be serviced and the
@@ -73,9 +74,11 @@ ElevatorSubsystem.java
 ElevatorTest.java
 	-> A jUNIT test class to test the methods of the Elevator class.
 IdleES.java
-	-> This class implements the ElevatorState interface to set the State to Idle and change characteristics 	    of the Elevator.	
+	-> This class implements the ElevatorState interface to set the State to Idle and change characteristics 	   
+	   of the Elevator.	
 MovingES.java
-	-> This class implements the ElevatorState interface to set the State to Moving and change 			   characteristics of the Elevator.
+	-> This class implements the ElevatorState interface to set the State to Moving and change 			   
+	   characteristics of the Elevator.
      
 /***** FLOOR SUBSYSTEM *****/
 Floor.java
@@ -100,9 +103,11 @@ floorRequests.txt
 	  
 /***** SCHEDULER SUBSYSTEM *****/
 Scheduler.java
-	-> The Scheduler is responsible for handling incoming requests from the floor Subsystem and passing 		   requests to the elevator subsystem. This is done with the implementation of a state machine. 
+	-> The Scheduler is responsible for handling incoming requests from the floor Subsystem and passing 		  
+	   requests to the elevator subsystem. This is done with the implementation of a state machine. 
 SchedulerStateMachine.java
-	-> The scheduler statemachine implements runnable and is in charge of implementing the state machine for 	    the scheduler
+	-> The scheduler statemachine implements runnable and is in charge of implementing the state machine for 	  
+	   the scheduler
 SchedulerStateMachineTest.java
 	-> This test class tests the state transistions of the state machine with how it interprets test data.
 SchedulerTest.java
@@ -111,10 +116,10 @@ SchedulerTest.java
 - SET-UP INSTRUCTIONS
 
 	1. Unzip project folder and import into Eclipse
-	2. Run the following files in order (threads)
-		a. FloorSubsystem.java (floor system)
+	2. Run the following files (threads)
+		a. SchedulerStateMachineFloorSubsystem.java (scheduler system)
 		b. ElevatorSubsystem.java (elevator system)
-		c. SchedulerStateMachine.java (scheduler system)
+		c. FloorSubsystem.java (floor system)
 	3. Run SchedulerStateMachineTest.java JUnit file to run unit test
 	4. Run ElevatorTest.java JUnit file to run unit test
  
@@ -122,4 +127,5 @@ SchedulerTest.java
 
 	To create randomized floorRequests data, the user can run "FloorRequestCreator.java" 
 	to have floorRequsts printed into the console, in a chronological order in accordance with time.
-	The console output can then be copy and pasted in the "floorRequest.txt" file.
+	The console output can then be copy and pasted in the "floorRequest.txt" file. The NUM_ELEVATORS
+	and NUM_FLOORS variables in Information.java can be modified to simulated desired system.
