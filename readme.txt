@@ -34,6 +34,8 @@ elevator is used to service a given request.
     -> Information.java
     -> ElevatorState.java and related classes
     -> Sequence Diagram
+    -> Overall State Diagram
+    -> Elevator State Diagram
     -> floorSubsystem and related classes
     
 - FILE NAMES
