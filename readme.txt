@@ -40,78 +40,81 @@ elevator is used to service a given request.
     -> floorSubsystem and related classes
     
 - File Names
-ELEVATOR SUBSYSTEM:
+DirectionLamp.java
+	-> This class models the direction lamps inside and outside the elevator. It
+ 	   indicates the direction of the elevator. It has a direction and status of on
+  	   or off
+Information.java
+	-> This class contains all the static final variables used in the system
+Network.java
+	-> The Network superclass contains generic methods to make it easier for sending
+ 	   and receiving packets.
+Packet.java
+	-> The Packet class contains helper functions to manipulate byte arrays. The
+ 	   methods allow for printing byte[], combining byte arrays and a toString
+ 	   method.
+	   
+/***** ELEVATOR SUBSYSTEM *****/
 ArrivedES.java
 	-> This class implements the ElevatorState interface to set the State to Arrived and change characteristics of the Elevator.
-
 Elevator.java
 	-> The Elevator threads floorsToVisit arraylist is updated by requests received
  	   from the Elevator Subsystem. When there are requests to be serviced and the
  	   elevator is in the IDLE state, it will service requests. It will also inform
            the scheduler through the arrival sensor at each floor it approaches to check
  	   if it should stop. It also changes the states of the state machine.
-
 ElevatorButton.java
 	-> This class simulates a floor button inside an elevator
-
 ElevatorState.java
 	-> This interface holds all the methods that the Elevator States use to implement the logic.
-
 ElevatorSubsystem.java
 	-> This class controls the elevators in the system. It will receive requests
  	   from the scheduler at an initialized port and will pass the request on to the
- 	   appropriate elevator.
-	   
+ 	   appropriate elevator.	   
 ElevatorTest.java
 	-> A jUNIT test class to test the methods of the Elevator class.
-
 IdleES.java
-	-> This class implements the ElevatorState interface to set the State to Idle and change characteristics of the Elevator.
-	
+	-> This class implements the ElevatorState interface to set the State to Idle and change characteristics 	    of the Elevator.	
 MovingES.java
-	-> This class implements the ElevatorState interface to set the State to Moving and change characteristics of the Elevator.
+	-> This class implements the ElevatorState interface to set the State to Moving and change 			   characteristics of the Elevator.
      
-
-	
-
-
-
-
-
-
-
+/***** FLOOR SUBSYSTEM *****/
 Floor.java
-  -> The Floor thread will read in events from an input file and will try to put a request in the scheduler 
-     while the previous request has been acknowledged.
-	
+  	-> The floor class models a floor that has nShaft elevator shafts with an up or
+           down button to request and elevator and a lamp above each shaft to signal an
+           elevator arrival.
+FloorButton.java
+	-> This class simulates a floor button on a floor	
+FloorRequestCreator.java
+	-> The FloorRequestCreator class will create and print nRequests with parameters from
+ 	   the Information class. These requests can then be copied and pasted in to the
+ 	   floorRequest.txt file.
+FloorSubsystem.java
+	-> The FloorSubsystem thread will read in events from an input file and will try to put a request 
+ 	   in the scheduler and then peek ahead to the next request and sleep until time elapsed to send 
+ 	   the next floor request to the scheduler	   
 FloorTest.java
 	-> A jUNIT test class to test the methods of the Floor class. Currently empty
-	
-Information.java
-	-> A class that stores the constants of Iteration1 and the enumerators for the lamp state, motor direction, 
-     door state and direction lamp.
-
-Scheduler.java
-	-> The scheduler thread is a shared resource between the floor and elevator subsystems. The floorSubsystem 
-     will place requests into the Scheduler and the elevatorSubsystem will get and handle those requests.
-
-SchedulerTest.java
-	-> A jUNIT test class to test the methods of the Scheduler class.
-
-SchedulerStateMachine.java
-	-> The scheduler statemachine implements runnable and is in charge of implementing the state machine for the
-	scheduler
-	
-SchedulerStateMachine.java
-	-> This test class tests the state transistions of the state machine with how it interprets test data.
-	
 floorRequests.txt
   -> A text file containing 100 event requests in the form of 
           "TIME FLOOR FLOORBUTTON CARBUTTON"
+	  
+/***** SCHEDULER SUBSYSTEM *****/
+Scheduler.java
+	-> The Scheduler is responsible for handling incoming requests from the floor Subsystem and passing 		   requests to the elevator subsystem. This is done with the implementation of a state machine. 
+SchedulerStateMachine.java
+	-> The scheduler statemachine implements runnable and is in charge of implementing the state machine for 	    the scheduler
+SchedulerStateMachineTest.java
+	-> This test class tests the state transistions of the state machine with how it interprets test data.
+SchedulerTest.java
+	-> A jUNIT test class to test the methods of the Scheduler class. Currently empty
 
 - Set-up Instructions
 
 	1. Unzip project folder and import into Eclipse
-	2. Run ElevatorSystem.java file (main program)
-	3. Run SchedulerStateMachineTest.java JUnit file to run unit test
+	2. Run SchedulerStateMachineTest.java file (scheduler system)
+	3. Run ElevatorSubystem.java file (elevator system)
+	4. Run FloorSubsystem.java file (floor system)
+	5. Run SchedulerStateMachineTest.java JUnit file to run unit test
+	6. Run ElevatorTest.java JUnit file to run unit test
  
