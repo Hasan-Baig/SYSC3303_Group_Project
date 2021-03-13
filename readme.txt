@@ -7,24 +7,30 @@ Group 1 Members
   - Hasan Baig
   - Rutvik Shah
 
-Project Iteration 2 - State Machines
+Project Iteration 3 - Multiple Cars and System Distribution.
 
 - Purpose
 
-The purpose of this iteration is to add the state machines for the scheduler and elevator subsystems assuming that
-there is only one elevator. The elevator subsystem is used to notify the scheduler that an elevator has
-reached a floor, so that once an elevator has been told to move, the elevator subsystem also has to be informed
-so that it can send out messages back to the scheduler to denote the arrival by an elevator.
+The purpose of this iteration is to split the system up into three separate programs that can run on 
+three separate computers and communicate with each other using UDP. The Scheduler is now be used to coordinate 
+the movement of cars such that each car carries roughly the same number of passengers as all of the others and 
+so that the waiting time for passengers at floors is minimized. The state machines for each car executes
+independently of each other, but they share their position with the scheduler. The scheduler will choose which 
+elevator is used to service a given request.
 
 - Breakdown of Responsibilities
 
   ALL
-    -> Class Diagram
-    -> Sequence Diagram
-    -> ElevatorSystem.java (main program)
-  Abeer + Emma
-    -> Scheduler and related classes
-    -> SchedulerStateMachine and SchedulerStateMachineTest
+    -> 
+  Abeer 
+  -> Class Diagram
+  Emma
+    -> Creating UDP communication between subsystems
+    -> Implemented the algorithm in the scheduler to determine which elevator will serivce which request
+    -> Implemented the setup coordination between the ElevatorSubsystem, FloorSubsystem and Scheduler
+    -> Modified SchedulerStateMachineTest JUnit test to send mock data over UDP to scheduler
+    -> Creat ElevatorSubsystem to control multiple elevators
+    -> Creat FloorSubsystem to control multiple floors and send request to scheduler with required delay
   Alden + Hasan + Rutvik
     -> elevatorSubsystem and related classes
     -> Information.java
