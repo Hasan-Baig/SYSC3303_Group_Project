@@ -23,12 +23,12 @@ elevator is used to service a given request.
   Abeer 
   -> Class Diagram
   Emma
-    -> Creating UDP communication between subsystems
+    -> Creating UDP communication between subsystems, created the Network class to simplify send, receive and rpc_send
     -> Implemented the algorithm in the scheduler to determine which elevator will serivce which request
     -> Implemented the setup coordination between the ElevatorSubsystem, FloorSubsystem and Scheduler
     -> Modified SchedulerStateMachineTest JUnit test to send mock data over UDP to scheduler
-    -> Creat ElevatorSubsystem to control multiple elevators
-    -> Creat FloorSubsystem to control multiple floors and send request to scheduler with required delay
+    -> Created ElevatorSubsystem to control multiple elevators
+    -> Created FloorSubsystem to control multiple floors and send request to scheduler with required delay
   Alden + Hasan + Rutvik
     -> elevatorSubsystem and related classes
     -> Information.java
