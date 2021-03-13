@@ -33,8 +33,7 @@ elevator is used to service a given request.
     -> elevatorSubsystem and related classes
     -> Information.java
     -> ElevatorState.java and related classes
-    -> Overall State Diagram
-    -> Elevator State Diagram   
+    -> Sequence Diagram
     -> floorSubsystem and related classes
     
 - FILE NAMES
