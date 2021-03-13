@@ -40,30 +40,45 @@ elevator is used to service a given request.
     -> floorSubsystem and related classes
     
 - File Names
-
-ElevatorSystem.java
-	-> The main class which initializes the floorSubsystem(client), elevatorSubsystem(client) and the 
-     Scheduler(server) threads and then starts them.
-     
-Elevator.java
-	-> The Elevator thread will try to get requests from the scheduler while it is stationary. 
-    -> It will then handle those requests and pass an acknowledgment to the Scheduler to be passed back to the floorSubsystem.
-    -> It also changes the states of the state machine.
-
-ElevatorState.java
-	-> This interface holds all the methods that the Elevator States use to implement the logic.
-	
-IdleES.java
-	-> This class implements the ElevatorState interface to set the State to Idle and change characteristics of the Elevator.
-
-MovingES.java
-	-> This class implements the ElevatorState interface to set the State to Moving and change characteristics of the Elevator.
-
+ELEVATOR SUBSYSTEM:
 ArrivedES.java
 	-> This class implements the ElevatorState interface to set the State to Arrived and change characteristics of the Elevator.
 
+Elevator.java
+	-> The Elevator threads floorsToVisit arraylist is updated by requests received
+ 	   from the Elevator Subsystem. When there are requests to be serviced and the
+ 	   elevator is in the IDLE state, it will service requests. It will also inform
+           the scheduler through the arrival sensor at each floor it approaches to check
+ 	   if it should stop. It also changes the states of the state machine.
+
+ElevatorButton.java
+	-> This class simulates a floor button inside an elevator
+
+ElevatorState.java
+	-> This interface holds all the methods that the Elevator States use to implement the logic.
+
+ElevatorSubsystem.java
+	-> This class controls the elevators in the system. It will receive requests
+ 	   from the scheduler at an initialized port and will pass the request on to the
+ 	   appropriate elevator.
+	   
 ElevatorTest.java
 	-> A jUNIT test class to test the methods of the Elevator class.
+
+IdleES.java
+	-> This class implements the ElevatorState interface to set the State to Idle and change characteristics of the Elevator.
+	
+MovingES.java
+	-> This class implements the ElevatorState interface to set the State to Moving and change characteristics of the Elevator.
+     
+
+	
+
+
+
+
+
+
 
 Floor.java
   -> The Floor thread will read in events from an input file and will try to put a request in the scheduler 
