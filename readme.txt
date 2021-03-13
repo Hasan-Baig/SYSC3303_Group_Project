@@ -7,9 +7,9 @@ Group 1 Members
   - Hasan Baig
   - Rutvik Shah
 
-Project Iteration 3 - Multiple Cars and System Distribution.
+Project Iteration 3 - Multiple Cars and System Distribution
 
-- Purpose
+- PURPOSE
 
 The purpose of this iteration is to split the system up into three separate programs that can run on 
 three separate computers and communicate with each other using UDP. The Scheduler is now be used to coordinate 
@@ -18,10 +18,8 @@ so that the waiting time for passengers at floors is minimized. The state machin
 independently of each other, but they share their position with the scheduler. The scheduler will choose which 
 elevator is used to service a given request.
 
-- Breakdown of Responsibilities
+- BREAKDOWN OF RESPONSIBILITIES
 
-  ALL
-    -> 
   Abeer 
   -> Class Diagram
   Emma
@@ -39,7 +37,8 @@ elevator is used to service a given request.
     -> Elevator State Diagram   
     -> floorSubsystem and related classes
     
-- File Names
+- FILE NAMES
+
 DirectionLamp.java
 	-> This class models the direction lamps inside and outside the elevator. It
  	   indicates the direction of the elevator. It has a direction and status of on
@@ -109,12 +108,18 @@ SchedulerStateMachineTest.java
 SchedulerTest.java
 	-> A jUNIT test class to test the methods of the Scheduler class. Currently empty
 
-- Set-up Instructions
+- SET-UP INSTRUCTIONS
 
 	1. Unzip project folder and import into Eclipse
-	2. Run SchedulerStateMachineTest.java file (scheduler system)
-	3. Run ElevatorSubystem.java file (elevator system)
-	4. Run FloorSubsystem.java file (floor system)
-	5. Run SchedulerStateMachineTest.java JUnit file to run unit test
-	6. Run ElevatorTest.java JUnit file to run unit test
+	2. Run the following files in order (threads)
+		a. FloorSubsystem.java (floor system)
+		b. ElevatorSubsystem.java (elevator system)
+		c. SchedulerStateMachine.java (scheduler system)
+	3. Run SchedulerStateMachineTest.java JUnit file to run unit test
+	4. Run ElevatorTest.java JUnit file to run unit test
  
+- NOTE
+
+	To create randomized floorRequests data, the user can run "FloorRequestCreator.java" 
+	to have floorRequsts printed into the console, in a chronological order in accordance with time.
+	The console output can then be copy and pasted in the "floorRequest.txt" file.
